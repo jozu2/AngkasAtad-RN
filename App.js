@@ -13,7 +13,7 @@ function App(){
 
       const [initializing, setInitializing] = useState(true);
       const [user, setUser] = useState();
-
+      console.log(user)
       function onAuthStateChanged(user){
         setUser(user);
         if(initializing) setInitializing(false);
