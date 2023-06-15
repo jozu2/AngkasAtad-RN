@@ -6,16 +6,16 @@ import { useNavigation } from '@react-navigation/native'
 
 
 
-const Registration = () => {
+const StudentRegistration = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [studentId, setStudentId] = useState('')
-
+  const [isStudent, setIsStudent] = useState(true)
   const navigation = useNavigation();
 
-        resgisterUser = async (email, password, firstName, lastName, studentId) => {
+ resgisterUser = async (email, password, firstName, lastName, studentId, isStudent) => {
           await firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
                 firebase.auth().currentUser.sendEmailVerification({
@@ -32,7 +32,7 @@ const Registration = () => {
                         firebase.firestore().collection('users')
                         .doc(firebase.auth().currentUser.uid)
                         .set({
-                          firstName,lastName,email,studentId
+                          firstName,lastName,email,studentId, isStudent
                         })
                         }).catch((err) => {
                           alert(err.message)
@@ -92,14 +92,13 @@ return(
                       textContentType="password"
                       keyboardType="default"/>
 
-
           <Pressable style={styles.registerContainer}
                     onPress={() => navigation.navigate('Login')}>
           <Text style={styles.register}>want to sign in?</Text>
           </Pressable>
 
                  <Pressable style={styles.button} 
-                           onPress={() => resgisterUser(email, password, firstName, lastName, studentId)}>
+                           onPress={() => resgisterUser(email, password, firstName, lastName, studentId, isStudent)}>
                   <Text>SIGN UP</Text>
                   </Pressable>
 
@@ -110,7 +109,7 @@ return(
 
 }
 
-export default Registration
+export default StudentRegistration
 
 
 
@@ -120,6 +119,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     padding: 16,
+  },
+  hiddenInput: {
+    width: 0,
+    height: 0,
   },
   button: {
     width: "100%",
