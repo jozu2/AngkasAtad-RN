@@ -1,21 +1,21 @@
 import { View, Text, Pressable, TextInput, StyleSheet} from 'react-native'
 import  React, { useState } from 'react'
-import { firebase } from '../config'
+import { firebase } from '../../config'
 import { useNavigation } from '@react-navigation/native'
 
 
 
 
-const StudentRegistration = () => {
+const DriverRegistration = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [studentId, setStudentId] = useState('')
-  const [isStudent, setIsStudent] = useState(true)
+  const [isStudent, setIsStudent] = useState(false)
   const navigation = useNavigation();
 
- resgisterUser = async (email, password, firstName, lastName, studentId, isStudent) => {
+ resgisterDriver = async (email, password, firstName, lastName, studentId, isStudent) => {
           await firebase.auth().createUserWithEmailAndPassword(email, password)
             .then(() => {
                 firebase.auth().currentUser.sendEmailVerification({
@@ -93,12 +93,12 @@ return(
                       keyboardType="default"/>
 
           <Pressable style={styles.registerContainer}
-                    onPress={() => navigation.navigate('Login')}>
+                    onPress={() => navigation.navigate('HomeLogin')}>
           <Text style={styles.register}>want to sign in?</Text>
           </Pressable>
 
                  <Pressable style={styles.button} 
-                           onPress={() => resgisterUser(email, password, firstName, lastName, studentId, isStudent)}>
+                           onPress={() => resgisterDriver(email, password, firstName, lastName, studentId, isStudent)}>
                   <Text>SIGN UP</Text>
                   </Pressable>
 
@@ -109,7 +109,7 @@ return(
 
 }
 
-export default StudentRegistration
+export default DriverRegistration
 
 
 

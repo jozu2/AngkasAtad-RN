@@ -8,12 +8,13 @@ const HomeLogin = () => {
     <View style={styles.container}>
 
       <Pressable style={styles.button}
-                 onPress={() => navigation.navigate('Login')}>             
+                 onPress={() => navigation.navigate('StudentLogin')}>             
         <Text>Student</Text> 
       </Pressable>
 
 
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button}
+                  onPress={() => navigation.navigate('DriverLogin')}> 
         <Text>Driver</Text>
       </Pressable>
 
