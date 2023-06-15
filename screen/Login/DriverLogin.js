@@ -1,11 +1,11 @@
 import { View, Text, Pressable, TextInput, StyleSheet} from 'react-native'
 import  React, { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
-import { firebase } from '../config'
+import { firebase } from '../../config'
 
 
 
-const Login = () => {
+const DriverLogin = () => {
   const [password,setPassword] = useState('');
   const [email,setEmail] = useState('');
   const navigation = useNavigation();
@@ -38,8 +38,8 @@ const Login = () => {
                           autoCapitalize='none'/>
                           
         <Pressable 
-                    onPress={() => navigation.navigate('StudentRegistration')}>
-          <Text style={styles.register}>no account? Register</Text>
+                    onPress={() => navigation.navigate('DriverRegistration')}>
+          <Text style={styles.register}>NO Driver Account? Register</Text>
         </Pressable>
 
 
@@ -55,7 +55,7 @@ const Login = () => {
   )
 }
 
-export default Login
+export default DriverLogin
 
 
 const styles = StyleSheet.create({
