@@ -13,7 +13,6 @@ const Login = () => {
   loginUser = async  (email, password) => {
     try{
       await firebase.auth().signInWithEmailAndPassword(email, password)
-      navigation.navigate('Registration')
     }catch (error ){
       alert(error.message)
     }
@@ -39,7 +38,7 @@ const Login = () => {
                           autoCapitalize='none'/>
                           
         <Pressable 
-                    onPress={() => navigation.navigate('Registration')}>
+                    onPress={() => navigation.navigate('StudentRegistration')}>
           <Text style={styles.register}>no account? Register</Text>
         </Pressable>
 

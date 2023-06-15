@@ -1,22 +1,21 @@
-// firebase config key setup
-
+import env from './.env';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
 // webapp's config
 const firebaseConfig = {
-  apiKey: "AIzaSyB5R-UO_WuCeWbsOj214c9xuVsuVDTOxx4",
-  authDomain: "angkasatadapp-65942.firebaseapp.com",
-  projectId: "angkasatadapp-65942",
-  storageBucket: "angkasatadapp-65942.appspot.com",
-  messagingSenderId: "191448204299",
-  appId: "1:191448204299:web:d9fb29edbdfd4730f0330e",
-  measurementId: "G-PTPHQP0HLN"
+  apiKey: env.FIREBASE_API_KEY,
+  authDomain: env.FIREBASE_AUTH_DOMAIN,
+  projectId: env.FIREBASE_PROJECT_ID,
+  storageBucket: env.FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: env.FIREBASE_MESSAGING_SENDER_ID,
+  appId: env.FIREBASE_APP_ID,
+  measurementId: env.FIREBASE_MEASUREMENT_ID,
 };
 
-if (!firebase.apps.length){
-    firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
 }
 
 export { firebase };

@@ -1,0 +1,9 @@
+export default {
+  FIREBASE_API_KEY: "AIzaSyB5R-UO_WuCeWbsOj214c9xuVsuVDTOxx4",
+  FIREBASE_AUTH_DOMAIN: "angkasatadapp-65942.firebaseapp.com",
+  FIREBASE_PROJECT_ID: "angkasatadapp-65942",
+  FIREBASE_STORAGE_BUCKET: "angkasatadapp-65942.appspot.com",
+  FIREBASE_MESSAGING_SENDER_ID: "191448204299",
+  FIREBASE_APP_ID: "1:191448204299:web:d9fb29edbdfd4730f0330e",
+  FIREBASE_MEASUREMENT_ID: "G-PTPHQP0HLN",
+};
